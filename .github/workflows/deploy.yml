@@ -1,11 +1,9 @@
 name: Construire et déployer le site
 
-# Se déclenche à chaque sauvegarde sur la branche principale —
-# c'est-à-dire à chaque fois que Patrick publie une modification depuis /admin/.
 on:
   push:
     branches: [main]
-  workflow_dispatch:   # permet aussi un déclenchement manuel depuis GitHub, au besoin
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -37,4 +35,4 @@ jobs:
           username: ${{ secrets.LIKUID_FTP_USER }}
           password: ${{ secrets.LIKUID_FTP_PASSWORD }}
           local-dir: ./_site/
-         server-dir: ./    # à ajuster selon le dossier racine réel du compte LIKUID
+          server-dir: ./
