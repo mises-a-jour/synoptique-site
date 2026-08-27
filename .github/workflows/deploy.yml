@@ -1,0 +1,40 @@
+name: Construire et déployer le site
+
+# Se déclenche à chaque sauvegarde sur la branche principale —
+# c'est-à-dire à chaque fois que Patrick publie une modification depuis /admin/.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # permet aussi un déclenchement manuel depuis GitHub, au besoin
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Installer Python (pour les scripts de post-traitement)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Construire le site
+        run: bash build.sh
+
+      - name: Déposer sur LIKUID par FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.LIKUID_FTP_HOST }}
+          username: ${{ secrets.LIKUID_FTP_USER }}
+          password: ${{ secrets.LIKUID_FTP_PASSWORD }}
+          local-dir: ./_site/
+          server-dir: ./public_html/    # à ajuster selon le dossier racine réel du compte LIKUID
