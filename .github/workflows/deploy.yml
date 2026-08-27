@@ -37,4 +37,4 @@ jobs:
           username: ${{ secrets.LIKUID_FTP_USER }}
           password: ${{ secrets.LIKUID_FTP_PASSWORD }}
           local-dir: ./_site/
-          server-dir: ./public_html/    # à ajuster selon le dossier racine réel du compte LIKUID
+         server-dir: ./    # à ajuster selon le dossier racine réel du compte LIKUID
