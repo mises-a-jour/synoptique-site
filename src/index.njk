@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: false
+description: "Éditions Synoptique — maison littéraire et philosophique. Essais, aphorismes, poésie et fiction, dans des éditions papier soignées."
+---
+{% from "macros.njk" import bookcard %}
+{% set nouveautes = collections.nouveautes %}
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Œuvres de lumière, <em>voisines du silence</em></h1>
+    <p class="hero__lede"><span class="drop">U</span>ne maison d'édition vouée aux idées pérennes — essais, aphorismes, poésie, philosophie — et à l'objet qui les porte. Chaque titre est pensé, composé et imprimé avec le soin que mérite la pensée.</p>
+    <a class="btn btn--ghost" href="/la-maison/">Découvrir la maison</a>
+  </div>
+  <div class="hero__mark">{% include "emblem.njk" %}</div>
+</section>
+
+
+<section class="wrap" id="nouveautes">
+  <div class="section-head">
+    <h2>Nouveautés</h2>
+    <a class="more" href="/nouveautes/">Toutes les nouveautés →</a>
+  </div>
+  <div class="book-grid book-grid--feature">
+    {% for item in nouveautes %}{{ bookcard(item) }}{% endfor %}
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>Au catalogue</h2>
+    <a class="more" href="/catalogue/">Tout le catalogue →</a>
+  </div>
+  <div class="book-grid">
+    {% for item in collections.livres %}
+      {% if not item.data.nouveaute %}{{ bookcard(item) }}{% endif %}
+    {% endfor %}
+  </div>
+</section>
+

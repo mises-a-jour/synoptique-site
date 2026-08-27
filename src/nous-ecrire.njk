@@ -1,0 +1,47 @@
+---
+layout: base.njk
+title: Nous écrire
+description: "Contacter les Éditions Synoptique : manuscrits, presse, libraires, demandes générales."
+---
+<div class="page-lede wrap">
+  <h1>Nous écrire</h1>
+  <p class="hero__lede">Manuscrits, presse, libraires, demandes générales – écrivez-nous.</p>
+</div>
+
+<section class="wrap">
+  <div class="contact-grid">
+
+    {# ─── Colonne gauche : formulaire (désactivé pour l'instant) ─── #}
+    <div>
+      <div class="label" style="margin-bottom:.8rem">Formulaire de contact</div>
+      <p style="color:var(--ink-soft);margin:0 0 1.4rem">
+        Le formulaire ci-dessous sera activé en phase 4. En attendant, écrivez-nous
+        directement à l'adresse indiquée à droite, en précisant la nature de votre demande.
+      </p>
+      <label class="field"><span>Nom</span>
+        <input type="text" name="nom" autocomplete="name" disabled></label>
+      <label class="field"><span>Courriel</span>
+        <input type="email" name="courriel" autocomplete="email" disabled></label>
+      <label class="field"><span>Objet</span>
+        <select name="objet" disabled>
+          <option>Manuscrit</option>
+          <option>Demande de presse</option>
+          <option>Demande libraire</option>
+          <option>Question générale</option>
+        </select></label>
+      <label class="field"><span>Message</span>
+        <textarea name="message" rows="6" disabled></textarea></label>
+      <button class="btn" type="button" disabled>Envoyer</button>
+      <span class="placeholder-note" style="margin-left:1rem">Formulaire actif en phase 4</span>
+    </div>
+
+    {# ─── Colonne droite : coordonnées et voies de correspondance ─── #}
+    <div class="coords">
+      <div>
+        <span class="label">Courriel général</span>
+        <p style="margin:0"><a href="mailto:synoptique@editions-synoptique.com">synoptique@editions-synoptique.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+

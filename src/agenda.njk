@@ -1,0 +1,55 @@
+---
+layout: base.njk
+title: Agenda
+description: "Lancements, signatures et salons des Éditions Synoptique."
+---
+<div class="page-lede wrap">
+  <h1>Agenda</h1>
+  <p class="hero__lede">Lancements, signatures et rendez-vous.</p>
+</div>
+
+<section class="wrap agenda">
+  <h2 class="agenda__titre">Événements à venir</h2>
+  {% set avenir = evenements | evenementsAvenir %}
+  {% if avenir.length > 0 %}
+    <ul class="agenda-list">
+      {% for ev in avenir %}
+        <li class="agenda-item">
+          <div class="agenda-item__date">{{ ev.dateLisible or ev.date }}{% if ev.heure %} · {{ ev.heure }}{% endif %}</div>
+          <div class="agenda-item__corps">
+            <div class="label">{{ ev.type }}</div>
+            <h3>{{ ev.titre }}</h3>
+            {% if ev.auteur %}<p class="agenda-item__auteur">{{ ev.auteur }}</p>{% endif %}
+            {% if ev.lieu %}<p class="agenda-item__lieu">{{ ev.lieu }}{% if ev.adresse %}, {{ ev.adresse }}{% endif %}</p>{% endif %}
+            {% if ev.description %}<p>{{ ev.description }}</p>{% endif %}
+            {% if ev.note %}<p class="agenda-item__note">{{ ev.note }}</p>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="agenda__vide">Aucun événement à venir pour l'instant.</p>
+  {% endif %}
+
+  <h2 class="agenda__titre agenda__titre--passes">Événements passés</h2>
+  {% set passes = evenements | evenementsPasses %}
+  {% if passes.length > 0 %}
+    <ul class="agenda-list agenda-list--passes">
+      {% for ev in passes %}
+        <li class="agenda-item agenda-item--passe">
+          <div class="agenda-item__date">{{ ev.dateLisible or ev.date }}{% if ev.heure %} · {{ ev.heure }}{% endif %}</div>
+          <div class="agenda-item__corps">
+            <div class="label">{{ ev.type }}</div>
+            <h3>{{ ev.titre }}</h3>
+            {% if ev.auteur %}<p class="agenda-item__auteur">{{ ev.auteur }}</p>{% endif %}
+            {% if ev.lieu %}<p class="agenda-item__lieu">{{ ev.lieu }}{% if ev.adresse %}, {{ ev.adresse }}{% endif %}</p>{% endif %}
+            {% if ev.description %}<p>{{ ev.description }}</p>{% endif %}
+            {% if ev.note %}<p class="agenda-item__note">{{ ev.note }}</p>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="agenda__vide">Aucun événement passé.</p>
+  {% endif %}
+</section>

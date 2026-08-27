@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Nouveautés
+description: "Les parutions récentes des Éditions Synoptique."
+---
+{% from "macros.njk" import bookcard %}
+{% set nouveautes = collections.nouveautes %}
+
+<div class="page-lede wrap">
+  <h1>Nouveautés</h1>
+  <p class="hero__lede">Les parutions récentes de la maison.</p>
+</div>
+
+<section class="wrap">
+  <div class="book-grid book-grid--feature">
+    {% for item in nouveautes %}{{ bookcard(item) }}{% endfor %}
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head"><h2>Le reste du catalogue</h2>
+    <a class="more" href="/catalogue/">Tout voir →</a></div>
+  <div class="book-grid">
+    {% for item in collections.livres %}
+      {% if not item.data.nouveaute %}{{ bookcard(item) }}{% endif %}
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Collection Marcel De Corte
+description: "La collection Marcel De Corte aux Éditions Synoptique."
+permalink: /collections/marcel-de-corte/
+---
+{% from "macros.njk" import bookcard %}
+{% set titres = collections.livres | parCollection("Marcel De Corte") %}
+
+<div class="house-hd house-hd--coll wrap">
+  <img class="coll-emblem" src="/assets/img/logo-de-corte.png" alt="Collection Marcel De Corte" width="200" height="187">
+  <h1 class="sr-only">Collection Marcel De Corte</h1>
+  <p class="hero__lede" style="margin-top:.4rem">Les œuvres du philosophe, réunies en collection.</p>
+</div>
+
+<section class="wrap">
+  <div class="book-grid">
+    {% for item in titres %}{{ bookcard(item) }}{% endfor %}
+  </div>
+</section>

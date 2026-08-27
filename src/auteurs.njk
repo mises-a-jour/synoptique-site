@@ -1,0 +1,34 @@
+---
+layout: base.njk
+title: Auteurs
+description: "Les auteurs des Éditions Synoptique et des Presses Philosophiques."
+---
+<div class="page-lede wrap">
+  <h1>Auteurs</h1>
+  <p class="hero__lede">Les voix du catalogue, des deux maisons.</p>
+</div>
+
+<section class="wrap">
+  <div class="author-grid">
+    {% set auteursTries = collections.auteurs | sortByTri %}
+    {% for a in auteursTries %}
+      {% set sesLivres = collections.livres | livresDeLAuteur(a.data.slug) %}
+      {% set n = sesLivres.length %}
+      {% if n > 0 %}
+      <article class="acard">
+        <div class="acard__pic">
+          {% if a.data.photo %}
+            <img src="/assets/img/{{ a.data.photo }}" alt="Portrait de {{ a.data.nom }}">
+          {% else %}
+            <div class="portrait-ph"><span class="ini">{{ a.data.ini }}</span></div>
+          {% endif %}
+        </div>
+        <div>
+          <h2 class="acard__name"><a href="{{ a.url }}">{{ a.data.nom }}</a></h2>
+          <div class="acard__meta">{{ n }} titre{{ "s" if n > 1 }}</div>
+        </div>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

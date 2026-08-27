@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Essais
+description: "Les titres en essais aux Éditions Synoptique et aux Presses Philosophiques."
+permalink: /essais/
+---
+{% from "macros.njk" import bookcard %}
+{% set titres = collections.livres | parGenre("essais") %}
+
+<div class="page-lede wrap">
+  <div class="label">Genre</div>
+  <h1>Essais</h1>
+  <p class="hero__lede">Les essais publiés aux Éditions Synoptique.</p>
+</div>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>{{ titres.length }} titre{{ "s" if titres.length > 1 }}</h2>
+    <a class="more" href="/catalogue/">Tout le catalogue →</a>
+  </div>
+  {% if titres.length > 0 %}
+    <div class="book-grid">
+      {% for item in titres %}{{ bookcard(item) }}{% endfor %}
+    </div>
+  {% else %}
+    <p class="prose">Aucun titre dans cette catégorie pour le moment.</p>
+  {% endif %}
+</section>

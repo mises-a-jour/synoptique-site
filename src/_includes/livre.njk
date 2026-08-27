@@ -1,0 +1,76 @@
+---
+layout: base.njk
+---
+{% from "macros.njk" import cover as coverEl, bookcard %}
+{% set auteurObj = collections.auteurs | auteurParSlug(auteur) %}
+
+<div class="wrap detail">
+  <div class="detail__cover">
+    {{ coverEl({ cover: cover, titre: titre, auteurNom: auteurNom, maison: maison }) }}
+  </div>
+
+  <div class="detail__body">
+    <div class="label">{% if maison == 'presses' %}Les Presses Philosophiques{% else %}Éditions Synoptique{% endif %}</div>
+    <h1>{{ titre }}</h1>
+    {% if auteurObj %}
+      <a class="detail__author" href="{{ auteurObj.url }}">{{ auteurNom }}</a>
+    {% else %}
+      <span class="detail__author">{{ auteurNom }}</span>
+    {% endif %}
+
+    <div class="detail__desc">
+      {{ content | typo | safe }}
+    </div>
+
+    <dl class="biblio">
+      {% if preface %}<dt>Apparat</dt><dd>{{ preface }}</dd>{% endif %}
+      <dt>Genre</dt><dd>{{ genre }}</dd>
+      {% if collection %}<dt>Collection</dt><dd>{{ collection }}</dd>{% endif %}
+      <dt>Parution</dt><dd>{{ annee }}</dd>
+      <dt>Pages</dt><dd>{{ pages }}</dd>
+      {% if isbn %}<dt>ISBN</dt><dd>{{ isbn }}</dd>{% endif %}
+    </dl>
+
+    <div class="buy">
+      <span class="buy__price">{{ prixCAD }}&nbsp;$ CA <span class="label">· {{ prixEUR }}&nbsp;€</span></span>
+      <button class="btn" type="button" disabled>Ajouter au panier</button>
+      <span class="buy__note">Module de vente à venir (phase 3){% if fraisPort %} — frais de port en sus{% endif %}.</span>
+    </div>
+
+    {% if says %}
+    <div class="says">
+      <h3>Ce qu'on en dit</h3>
+      {% for s in says %}
+        {% if s.texte %}
+          <blockquote>
+            <div class="says__body">{{ s.texte | insec | safe }}</div>
+            <cite>{% if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.source | typo | safe }}</a>{% else %}{{ s.source | typo | safe }}{% endif %}</cite>
+          </blockquote>
+        {% else %}
+          <p class="says__ref">{% if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.source | typo | safe }}</a>{% else %}{{ s.source | typo | safe }}{% endif %}</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if audio %}
+    <div class="audio-player">
+      <div class="audio-player__label">Écouter l'entretien</div>
+      <audio controls preload="none" src="/assets/audio/{{ audio }}"></audio>
+      {% if audioCredit %}<p class="audio-player__credit">{{ audioCredit | typo | safe }}</p>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% set memeAuteur = collections.livres | livresDeLAuteur(auteur) %}
+{% if memeAuteur.length > 1 %}
+<section class="wrap">
+  <div class="section-head"><h2>Du même auteur</h2></div>
+  <div class="book-grid">
+    {% for item in memeAuteur %}
+      {% if item.data.slug != slug %}{{ bookcard(item) }}{% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

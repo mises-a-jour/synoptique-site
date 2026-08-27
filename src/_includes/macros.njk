@@ -1,0 +1,35 @@
+{# ---- Couverture : image réelle ou couverture de remplacement ---- #}
+{% macro cover(l) %}
+  {% if l.cover %}
+    <span class="book__cover">
+      <img src="/assets/covers/{{ l.cover }}" alt="Couverture de {{ l.titre }}" loading="lazy">
+    </span>
+  {% else %}
+    <span class="book__cover">
+      <span class="cover-ph {% if l.maison == 'presses' %}cover-ph--bleu{% endif %}">
+        <span class="cover-ph__top">{{ l.auteurNom }}</span>
+        <span class="cover-ph__title">{{ l.titre }}</span>
+        <span class="cover-ph__house">{% if l.maison == 'presses' %}Les Presses Philosophiques{% else %}Synoptique{% endif %}</span>
+      </span>
+    </span>
+  {% endif %}
+{% endmacro %}
+
+{# ---- Fiche de livre pour les grilles. Reçoit un item de collection. ---- #}
+{% macro bookcard(item) %}
+  {% set l = item.data %}
+  <article class="book" data-auteur="{{ l.auteur }}" data-genre="{{ l.genre }}"
+           data-maison="{{ l.maison }}" data-collection="{{ l.collection or '' }}"
+           data-titre="{{ l.titre | lower }}">
+    <a href="{{ item.url }}" aria-label="{{ l.titre }}">{{ cover(l) }}</a>
+    <div class="book__meta">
+      <h3 class="book__title"><a href="{{ item.url }}">{{ l.titre }}</a></h3>
+      <div class="book__author">{{ l.auteurNom }}</div>
+      <div class="book__line">
+        <span class="tag {% if l.maison == 'presses' %}tag--bleu{% endif %}">{{ l.genre }}</span>
+        <span class="book__price">{{ l.prixCAD }}&nbsp;$</span>
+      </div>
+      {% if l.maison == 'presses' %}<div class="book__house">Les Presses Philosophiques</div>{% endif %}
+    </div>
+  </article>
+{% endmacro %}

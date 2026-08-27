@@ -1,0 +1,12 @@
+{
+  "name": "editions-synoptique",
+  "version": "0.1.0",
+  "description": "Site des Éditions Synoptique — phase 1 (structure et design)",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

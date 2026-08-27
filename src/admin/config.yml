@@ -1,0 +1,108 @@
+backend:
+  name: github
+  repo: OWNER/REPO   # ← à remplacer par le dépôt GitHub réel (ex. Synoptique/site)
+  branch: main
+
+# Sveltia dépose les images téléversées ici, et le site y fait référence avec ce préfixe.
+media_folder: "src/assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+locale: fr
+
+collections:
+  - name: livres
+    label: "Livres"
+    label_singular: "Livre"
+    folder: "src/livres"
+    create: true
+    slug: "{{fields.slug}}"
+    extension: md
+    format: yaml-frontmatter
+    identifier_field: titre
+    summary: "{{titre}} — {{auteurNom}}"
+    fields:
+      - { label: "Titre", name: titre, widget: string }
+      - { label: "Identifiant d'URL (slug)", name: slug, widget: string, hint: "Sans accents ni espaces, ex. theophile" }
+      - { label: "Auteur (identifiant)", name: auteur, widget: string, hint: "Doit correspondre au slug de la fiche auteur, ex. marcel-de-corte" }
+      - { label: "Nom de l'auteur (affiché)", name: auteurNom, widget: string }
+      - { label: "Année de parution", name: annee, widget: number, value_type: int }
+      - { label: "Nombre de pages", name: pages, widget: number, value_type: int }
+      - label: "Genre"
+        name: genre
+        widget: select
+        options: ["Aphorismes", "Essais", "Philosophie", "Poésie"]
+      - { label: "Collection", name: collection, widget: string, required: false, hint: "Ex. Marcel De Corte — laisser vide si aucune" }
+      - label: "Maison"
+        name: maison
+        widget: select
+        options:
+          - { label: "Éditions Synoptique", value: "synoptique" }
+          - { label: "Les Presses Philosophiques", value: "presses" }
+      - { label: "Prix (CAD)", name: prixCAD, widget: number }
+      - { label: "Prix (EUR)", name: prixEUR, widget: number }
+      - { label: "ISBN", name: isbn, widget: string, required: false }
+      - { label: "Préface (mention)", name: preface, widget: string, required: false, hint: "Ex. Préface de Jean Renaud" }
+      - { label: "Couverture", name: cover, widget: image, media_folder: "src/assets/covers", public_folder: "/assets/covers", hint: "1000 px de haut, ~650 px de large" }
+      - { label: "Poids (grammes, pour l'expédition)", name: poids, widget: number, required: false }
+      - { label: "Nouveauté ?", name: nouveaute, widget: boolean, default: false, required: false }
+      - label: "Fichier audio de l'entretien"
+        name: audio
+        widget: file
+        media_folder: "src/assets/audio"
+        public_folder: "/assets/audio"
+        required: false
+      - { label: "Crédit de l'entretien", name: audioCredit, widget: text, required: false }
+      - label: "Ce qu'on en dit (revue de presse)"
+        name: says
+        widget: list
+        required: false
+        fields:
+          - { label: "Référence complète (auteur, titre, revue, date)", name: source, widget: string }
+          - { label: "Lien (optionnel)", name: url, widget: string, required: false }
+          - { label: "Texte cité", name: texte, widget: text, required: false }
+      - { label: "Description (corps de la fiche)", name: body, widget: markdown }
+
+  - name: auteurs
+    label: "Auteurs"
+    label_singular: "Auteur"
+    folder: "src/auteurs"
+    create: true
+    slug: "{{fields.slug}}"
+    extension: md
+    format: yaml-frontmatter
+    identifier_field: nom
+    fields:
+      - { label: "Titre (identique au nom, en général)", name: titre, widget: string }
+      - { label: "Nom complet", name: nom, widget: string }
+      - { label: "Identifiant d'URL (slug)", name: slug, widget: string }
+      - { label: "Tri (patronyme, pour le classement alphabétique)", name: tri, widget: string, hint: "Ex. « Corte » pour Marcel De Corte" }
+      - { label: "Dates (naissance-décès)", name: dates, widget: string, required: false, hint: "Ex. 1905-1994" }
+      - { label: "Initiales (portrait de secours si pas de photo)", name: ini, widget: string, required: false }
+      - { label: "Photo", name: photo, widget: image, media_folder: "src/assets/img", public_folder: "/assets/img", required: false }
+      - { label: "Notice biographique", name: body, widget: markdown, required: false }
+
+  - name: agenda
+    label: "Agenda"
+    files:
+      - name: evenements
+        label: "Événements"
+        file: "src/_data/evenements.json"
+        fields:
+          - label: "Événements"
+            name: events
+            widget: list
+            root: true
+            fields:
+              - { label: "Titre de l'événement", name: titre, widget: string }
+              - label: "Type"
+                name: type
+                widget: select
+                options: ["Lancement", "Signature", "Salon", "Conférence"]
+              - { label: "Date", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+              - { label: "Date affichée (optionnel)", name: dateLisible, widget: string, required: false, hint: "Ex. 8 octobre 2025 — sinon formatée automatiquement" }
+              - { label: "Heure", name: heure, widget: string, required: false, hint: "Ex. 17 h 30" }
+              - { label: "Lieu", name: lieu, widget: string, required: false }
+              - { label: "Adresse", name: adresse, widget: string, required: false }
+              - { label: "Auteur concerné", name: auteur, widget: string, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+              - { label: "Note (avis pratique, restrictions, etc.)", name: note, widget: text, required: false }

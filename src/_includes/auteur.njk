@@ -1,0 +1,36 @@
+---
+layout: base.njk
+---
+{% from "macros.njk" import bookcard %}
+{% set sesLivres = collections.livres | livresDeLAuteur(slug) %}
+
+<div class="wrap author-hd">
+  <div class="author-hd__photo">
+    {% if photo %}
+      <img src="/assets/img/{{ photo }}" alt="Portrait de {{ nom }}">
+    {% else %}
+      <div class="portrait-ph"><span class="ini">{{ ini }}</span></div>
+    {% endif %}
+  </div>
+  <div>
+    <div class="label">
+      {% if role %}{{ role | capitalize }}{% else %}Auteur{% endif %}{% if dates %} · {{ dates }}{% endif %}
+    </div>
+    <h1>{{ nom }}</h1>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="author-bio">
+    {{ content | typo | safe }}
+  </div>
+</div>
+
+{% if sesLivres.length %}
+<section class="wrap">
+  <div class="section-head"><h2>Ses titres</h2></div>
+  <div class="book-grid">
+    {% for item in sesLivres %}{{ bookcard(item) }}{% endfor %}
+  </div>
+</section>
+{% endif %}
