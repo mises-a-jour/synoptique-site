@@ -1,7 +1,8 @@
 backend:
   name: github
-  repo: OWNER/REPO   # ← à remplacer par le dépôt GitHub réel (ex. Synoptique/site)
+  repo: mises-a-jour/synoptique-site
   branch: main
+  base_url: https://sveltia-cms-auth.mises-a-jour.workers.dev
 
 # Sveltia dépose les images téléversées ici, et le site y fait référence avec ce préfixe.
 media_folder: "src/assets/img/uploads"
