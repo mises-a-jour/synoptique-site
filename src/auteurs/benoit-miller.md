@@ -8,4 +8,4 @@ ini: BM
 photo: ''
 ---
 
-Poète, auteur de _Théophile_.
+Natif de Beauport (Québec). Poète, auteur de _Théophile_.
