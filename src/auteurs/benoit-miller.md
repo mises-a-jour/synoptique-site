@@ -1,8 +1,11 @@
 ---
-titre: "Benoît Miller"
-nom: "Benoît Miller"
+titre: Benoit Miller
+nom: Benoit Miller
 slug: benoit-miller
-tri: "Miller"
-ini: "BM"
+tri: Miller
+dates: ''
+ini: BM
+photo: ''
 ---
-Poète, auteur de *Théophile*.
+
+Poète, auteur de _Théophile_.
