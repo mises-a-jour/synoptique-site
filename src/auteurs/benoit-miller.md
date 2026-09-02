@@ -1,6 +1,6 @@
 ---
-titre: Benoit Miller
-nom: Benoit Miller
+titre: Benoît Miller
+nom: Benoît Miller
 slug: benoit-miller
 tri: Miller
 dates: ''
