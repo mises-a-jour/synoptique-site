@@ -3,11 +3,13 @@ layout: base.njk
 title: Panier
 description: "Votre panier — Éditions Synoptique."
 ---
+{% set p = pages.panier %}
+
 <div class="page-lede wrap">
-  <h1>Panier</h1>
-  <p class="hero__lede">La vente en ligne sera activée prochainement.</p>
+  <h1>{{ p.titre }}</h1>
+  <p class="hero__lede">{{ p.intro }}</p>
 </div>
 <section class="wrap">
-  <p class="prose">Le panier et le paiement sécurisé (livres papier, expédition au poids, taxes) seront mis en place à la phase 3, avec gestion des commandes pour le Canada et l'Europe.</p>
-  <span class="placeholder-note">Module de vente à venir (phase 3)</span>
+  <p class="prose">{{ p.texte }}</p>
+  <span class="placeholder-note">{{ p.placeholder }}</span>
 </section>

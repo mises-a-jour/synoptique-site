@@ -119,12 +119,79 @@ collections:
             name: accueil
             widget: object
             fields:
-              - { label: "Titre — première partie", name: titre_ligne1, widget: string, hint: "S'affiche en noir" }
-              - { label: "Titre — deuxième partie", name: titre_ligne2, widget: string, hint: "S'affiche en rouge, en italique" }
-              - { label: "Lettrine (première lettre du paragraphe)", name: intro_lettrine, widget: string, hint: "Une seule lettre, affichée en gros et en rouge" }
-              - { label: "Paragraphe d'introduction", name: intro, widget: text, hint: "Attention : commence à la DEUXIÈME lettre, la première étant la lettrine ci-dessus" }
+              - { label: "Titre — première partie (en noir)", name: titre_ligne1, widget: string }
+              - { label: "Titre — deuxième partie (en rouge, italique)", name: titre_ligne2, widget: string }
+              - { label: "Lettrine", name: intro_lettrine, widget: string, hint: "Une seule lettre, affichée en gros et en rouge au début du paragraphe" }
+              - { label: "Paragraphe d'introduction", name: intro, widget: text, hint: "ATTENTION : commence à la DEUXIÈME lettre du texte — la première est la lettrine ci-dessus" }
               - { label: "Texte du bouton", name: bouton_texte, widget: string }
-              - { label: "Titre de la section Nouveautés", name: titre_nouveautes, widget: string }
-              - { label: "Lien sous Nouveautés", name: lien_nouveautes, widget: string }
-              - { label: "Titre de la section Catalogue", name: titre_catalogue, widget: string }
-              - { label: "Lien sous Catalogue", name: lien_catalogue, widget: string }
+              - { label: "Titre — section Nouveautés", name: titre_nouveautes, widget: string }
+              - { label: "Lien — section Nouveautés", name: lien_nouveautes, widget: string }
+              - { label: "Titre — section Catalogue", name: titre_catalogue, widget: string }
+              - { label: "Lien — section Catalogue", name: lien_catalogue, widget: string }
+          - { label: "La Maison", name: maison, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Citation en exergue", name: exergue_texte, widget: text },
+              { label: "Source de la citation", name: exergue_source, widget: string },
+              { label: "Titre du bandeau — 1re ligne", name: propos_titre_ligne1, widget: string },
+              { label: "Titre du bandeau — 2e ligne", name: propos_titre_ligne2, widget: string },
+              { label: "Texte du bandeau", name: propos_texte, widget: text, hint: "Chaque paragraphe doit être entouré de <p> et </p>. Pour l'italique : <em>mot</em>" },
+              { label: "Devise sous le logo", name: lockup_tagline, widget: string },
+              { label: "Texte « Synoptique »", name: synoptique_texte, widget: text, hint: "Chaque paragraphe entouré de <p> et </p>" },
+              { label: "Titre — Collections", name: collections_titre, widget: string },
+              { label: "Texte — Collections", name: collections_texte, widget: text, hint: "Entouré de <p> et </p>" },
+              { label: "Lien — Collections", name: collections_lien, widget: string },
+              { label: "Titre — Maison affiliée", name: affiliee_titre, widget: string },
+              { label: "Texte — Maison affiliée", name: affiliee_texte, widget: text, hint: "Entouré de <p> et </p>" },
+              { label: "Lien — Maison affiliée", name: affiliee_lien, widget: string },
+              { label: "Titre — Nous joindre", name: joindre_titre, widget: string },
+              { label: "Texte — Nous joindre", name: joindre_texte, widget: text, hint: "Entouré de <p> et </p>" }
+            ] }
+          - { label: "Nous écrire", name: nous_ecrire, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Phrase d'introduction", name: intro, widget: string },
+              { label: "Étiquette du formulaire", name: formulaire_label, widget: string },
+              { label: "Note sous le formulaire", name: formulaire_note, widget: text },
+              { label: "Mention « formulaire à venir »", name: formulaire_placeholder, widget: string },
+              { label: "Étiquette du courriel", name: courriel_label, widget: string },
+              { label: "Adresse courriel", name: courriel_adresse, widget: string }
+            ] }
+          - { label: "Catalogue", name: catalogue, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Phrase d'introduction", name: intro_suite, widget: text, hint: "Le nombre de titres est ajouté automatiquement au début" }
+            ] }
+          - { label: "Auteurs", name: auteurs, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Phrase d'introduction", name: intro, widget: string }
+            ] }
+          - { label: "Nouveautés", name: nouveautes, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Phrase d'introduction", name: intro, widget: string }
+            ] }
+          - { label: "Agenda", name: agenda, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Phrase d'introduction", name: intro, widget: string },
+              { label: "Titre — Événements à venir", name: titre_avenir, widget: string },
+              { label: "Titre — Événements passés", name: titre_passes, widget: string },
+              { label: "Message si aucun événement à venir", name: vide_avenir, widget: string },
+              { label: "Message si aucun événement passé", name: vide_passes, widget: string }
+            ] }
+          - { label: "Panier", name: panier, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Phrase d'introduction", name: intro, widget: string },
+              { label: "Texte principal", name: texte, widget: text },
+              { label: "Mention « à venir »", name: placeholder, widget: string }
+            ] }
+          - { label: "Les Presses Philosophiques", name: presses, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Phrase d'introduction", name: intro, widget: text }
+            ] }
+          - { label: "Collection Marcel De Corte", name: collection_de_corte, widget: object, collapsed: true, fields: [
+              { label: "Titre de la page", name: titre, widget: string },
+              { label: "Phrase d'introduction", name: intro, widget: string }
+            ] }
+          - { label: "Pages de genres", name: genres, widget: object, collapsed: true, fields: [
+              { label: "Aphorismes — introduction", name: aphorismes_intro, widget: string },
+              { label: "Essais — introduction", name: essais_intro, widget: string },
+              { label: "Philosophie — introduction", name: philosophie_intro, widget: string },
+              { label: "Poésie — introduction", name: poesie_intro, widget: string }
+            ] }

@@ -3,9 +3,11 @@ layout: base.njk
 title: Nous écrire
 description: "Contacter les Éditions Synoptique : manuscrits, presse, libraires, demandes générales."
 ---
+{% set p = pages.nous_ecrire %}
+
 <div class="page-lede wrap">
-  <h1>Nous écrire</h1>
-  <p class="hero__lede">Manuscrits, presse, libraires, demandes générales – écrivez-nous.</p>
+  <h1>{{ p.titre }}</h1>
+  <p class="hero__lede">{{ p.intro }}</p>
 </div>
 
 <section class="wrap">
@@ -13,11 +15,8 @@ description: "Contacter les Éditions Synoptique : manuscrits, presse, libraires
 
     {# ─── Colonne gauche : formulaire (désactivé pour l'instant) ─── #}
     <div>
-      <div class="label" style="margin-bottom:.8rem">Formulaire de contact</div>
-      <p style="color:var(--ink-soft);margin:0 0 1.4rem">
-        Le formulaire ci-dessous sera activé en phase 4. En attendant, écrivez-nous
-        directement à l'adresse indiquée à droite, en précisant la nature de votre demande.
-      </p>
+      <div class="label" style="margin-bottom:.8rem">{{ p.formulaire_label }}</div>
+      <p style="color:var(--ink-soft);margin:0 0 1.4rem">{{ p.formulaire_note }}</p>
       <label class="field"><span>Nom</span>
         <input type="text" name="nom" autocomplete="name" disabled></label>
       <label class="field"><span>Courriel</span>
@@ -32,14 +31,14 @@ description: "Contacter les Éditions Synoptique : manuscrits, presse, libraires
       <label class="field"><span>Message</span>
         <textarea name="message" rows="6" disabled></textarea></label>
       <button class="btn" type="button" disabled>Envoyer</button>
-      <span class="placeholder-note" style="margin-left:1rem">Formulaire actif en phase 4</span>
+      <span class="placeholder-note" style="margin-left:1rem">{{ p.formulaire_placeholder }}</span>
     </div>
 
     {# ─── Colonne droite : coordonnées et voies de correspondance ─── #}
     <div class="coords">
       <div>
-        <span class="label">Courriel général</span>
-        <p style="margin:0"><a href="mailto:synoptique@editions-synoptique.com">synoptique@editions-synoptique.com</a></p>
+        <span class="label">{{ p.courriel_label }}</span>
+        <p style="margin:0"><a href="mailto:{{ p.courriel_adresse }}">{{ p.courriel_adresse }}</a></p>
       </div>
     </div>
   </div>

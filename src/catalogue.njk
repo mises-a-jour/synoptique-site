@@ -10,8 +10,8 @@ description: "Le catalogue complet des Éditions Synoptique et des Presses Philo
 {% set collectionsListe = livres | pluck("data.collection") | distinct %}
 
 <div class="page-lede wrap" id="recherche">
-  <h1>Catalogue</h1>
-  <p class="hero__lede">{{ livres.length }} titres, 2 maisons. Cherchez un titre – ou filtrez par auteur, genre, collection ou maison.</p>
+  <h1>{{ pages.catalogue.titre }}</h1>
+  <p class="hero__lede">{{ livres.length }} {{ pages.catalogue.intro_suite }}</p>
 </div>
 
 <section class="wrap">

@@ -9,5 +9,72 @@
     "lien_nouveautes": "Toutes les nouveautés →",
     "titre_catalogue": "Au catalogue",
     "lien_catalogue": "Tout le catalogue →"
+  },
+  "maison": {
+    "titre": "La Maison",
+    "exergue_texte": "Plus haut nous nous élevons en effet, et plus nos paroles deviennent concises, car les intelligibles se présentent de façon de plus en plus synoptique.",
+    "exergue_source": "Denys le Pseudo-Aréopagite",
+    "propos_titre_ligne1": "Œuvres de lumière,",
+    "propos_titre_ligne2": "voisines du silence",
+    "propos_texte": "<p>Les Éditions Synoptique s’inscrivent dans une tradition à peu près perdue, la tradition du bel imprimé, de l’ouvrage dont le corps et l’âme ne font qu’un. Fondées en 2016 par Patrick Dionne, elles publient des œuvres enracinées, étoilées, <em>contre-intellectuelles</em>, dirait Charles Ferdinand Ramuz — aphorismes, essais, poèmes, traductions, correspondances, fictions, rééditions capitales.</p>\n<p>Une remarque de Paul Valéry résume ses ambitions : « Songez à ce qu’il faut pour plaire à trois millions de lecteurs. Paradoxe : il en faut <em>moins</em> que pour ne plaire qu’à cent personnes <em>exclusivement</em>. »</p>",
+    "lockup_tagline": "Œuvres de lumière, voisines du silence",
+    "synoptique_texte": "<p><em>Synoptique</em> vient du grec <em>sunoptikos</em> : « Qui embrasse tout d’un coup d’œil ». Embrasser la terre et le ciel, le temps et l’éternité, le visible et l’invisible, pari exaltant, héroïque. Qui n’a remarqué que ce siècle a la rage du détail ? Que de cervelles obsédées par lui et par lui uniquement ! Ce qui ne s’ordonne à l’ensemble, à une finalité transcendante, divise, épuise, tue.</p>\n<p>À l’inverse, qui n’a ressenti le caractère apaisant et fortifiant d’une vue récapitulative, d’une analogie médiatrice, d’une pensée qui va à l’essentiel, où chaque syllabe, sacrée, semble contenir un univers, traduire quelque chose du mystère, célébrer sa beauté virginale ? Les Éditions Synoptique publient des œuvres civilisatrices, unificatrices, des œuvres de lumière, voisines du silence.</p>",
+    "collections_titre": "Collections",
+    "collections_texte": "<p><strong>Collection Marcel De Corte</strong> — œuvres et études autour du philosophe belge Marcel De Corte (1905-1994), figure majeure de la pensée traditionnelle au XX<sup>e</sup> siècle.</p>",
+    "collections_lien": "Voir la collection →",
+    "affiliee_titre": "Maison affiliée",
+    "affiliee_texte": "<p><strong>Les Presses Philosophiques</strong> — maison sœur fondée par le latiniste et médiéviste Benoît Patar, consacrée à la poésie ainsi qu’à l’édition critique et à la traduction de philosophes médiévaux.</p>",
+    "affiliee_lien": "Découvrir les Presses Philosophiques →",
+    "joindre_titre": "Nous joindre",
+    "joindre_texte": "<p>Pour toute correspondance – proposition de manuscrit, service de presse, etc. – voir la page <a href=\"/nous-ecrire/\">Nous écrire</a>.</p>"
+  },
+  "nous_ecrire": {
+    "titre": "Nous écrire",
+    "intro": "Manuscrits, presse, libraires, demandes générales – écrivez-nous.",
+    "formulaire_label": "Formulaire de contact",
+    "formulaire_note": "Le formulaire ci-dessous sera activé en phase 4. En attendant, écrivez-nous directement à l'adresse indiquée à droite, en précisant la nature de votre demande.",
+    "formulaire_placeholder": "Formulaire actif en phase 4",
+    "courriel_label": "Courriel général",
+    "courriel_adresse": "synoptique@editions-synoptique.com"
+  },
+  "catalogue": {
+    "titre": "Catalogue",
+    "intro_suite": "titres, 2 maisons. Cherchez un titre – ou filtrez par auteur, genre, collection ou maison."
+  },
+  "auteurs": {
+    "titre": "Auteurs",
+    "intro": "Les voix du catalogue, des deux maisons."
+  },
+  "nouveautes": {
+    "titre": "Nouveautés",
+    "intro": "Les parutions récentes de la maison."
+  },
+  "agenda": {
+    "titre": "Agenda",
+    "intro": "Lancements, signatures et rendez-vous.",
+    "titre_avenir": "Événements à venir",
+    "titre_passes": "Événements passés",
+    "vide_avenir": "Aucun événement à venir pour l'instant.",
+    "vide_passes": "Aucun événement passé."
+  },
+  "panier": {
+    "titre": "Panier",
+    "intro": "La vente en ligne sera activée prochainement.",
+    "texte": "Le panier et le paiement sécurisé (livres papier, expédition au poids, taxes) seront mis en place à la phase 3, avec gestion des commandes pour le Canada et l'Europe.",
+    "placeholder": "Module de vente à venir (phase 3)"
+  },
+  "presses": {
+    "titre": "Les Presses Philosophiques",
+    "intro": "La maison affiliée des Éditions Synoptique, vouée à la poésie, à la philosophie et aux éditions savantes."
+  },
+  "collection_de_corte": {
+    "titre": "Collection Marcel De Corte",
+    "intro": "Les œuvres du philosophe, réunies en collection."
+  },
+  "genres": {
+    "aphorismes_intro": "La forme brève.",
+    "essais_intro": "Les essais publiés aux Éditions Synoptique.",
+    "philosophie_intro": "Philosophie et éditions savantes.",
+    "poesie_intro": "La voix poétique aux Éditions Synoptique."
   }
 }

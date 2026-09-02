@@ -3,13 +3,15 @@ layout: base.njk
 title: Agenda
 description: "Lancements, signatures et salons des Éditions Synoptique."
 ---
+{% set p = pages.agenda %}
+
 <div class="page-lede wrap">
-  <h1>Agenda</h1>
-  <p class="hero__lede">Lancements, signatures et rendez-vous.</p>
+  <h1>{{ p.titre }}</h1>
+  <p class="hero__lede">{{ p.intro }}</p>
 </div>
 
 <section class="wrap agenda">
-  <h2 class="agenda__titre">Événements à venir</h2>
+  <h2 class="agenda__titre">{{ p.titre_avenir }}</h2>
   {% set avenir = evenements | evenementsAvenir %}
   {% if avenir.length > 0 %}
     <ul class="agenda-list">
@@ -28,10 +30,10 @@ description: "Lancements, signatures et salons des Éditions Synoptique."
       {% endfor %}
     </ul>
   {% else %}
-    <p class="agenda__vide">Aucun événement à venir pour l'instant.</p>
+    <p class="agenda__vide">{{ p.vide_avenir }}</p>
   {% endif %}
 
-  <h2 class="agenda__titre agenda__titre--passes">Événements passés</h2>
+  <h2 class="agenda__titre agenda__titre--passes">{{ p.titre_passes }}</h2>
   {% set passes = evenements | evenementsPasses %}
   {% if passes.length > 0 %}
     <ul class="agenda-list agenda-list--passes">
@@ -50,6 +52,6 @@ description: "Lancements, signatures et salons des Éditions Synoptique."
       {% endfor %}
     </ul>
   {% else %}
-    <p class="agenda__vide">Aucun événement passé.</p>
+    <p class="agenda__vide">{{ p.vide_passes }}</p>
   {% endif %}
 </section>
