@@ -107,3 +107,24 @@ collections:
               - { label: "Auteur concerné", name: auteur, widget: string, required: false }
               - { label: "Description", name: description, widget: text, required: false }
               - { label: "Note (avis pratique, restrictions, etc.)", name: note, widget: text, required: false }
+
+  - name: pages
+    label: "Pages du site"
+    files:
+      - name: accueil
+        label: "Page d'accueil"
+        file: "src/_data/pages.json"
+        fields:
+          - label: "Page d'accueil"
+            name: accueil
+            widget: object
+            fields:
+              - { label: "Titre — première partie", name: titre_ligne1, widget: string, hint: "S'affiche en noir" }
+              - { label: "Titre — deuxième partie", name: titre_ligne2, widget: string, hint: "S'affiche en rouge, en italique" }
+              - { label: "Lettrine (première lettre du paragraphe)", name: intro_lettrine, widget: string, hint: "Une seule lettre, affichée en gros et en rouge" }
+              - { label: "Paragraphe d'introduction", name: intro, widget: text, hint: "Attention : commence à la DEUXIÈME lettre, la première étant la lettrine ci-dessus" }
+              - { label: "Texte du bouton", name: bouton_texte, widget: string }
+              - { label: "Titre de la section Nouveautés", name: titre_nouveautes, widget: string }
+              - { label: "Lien sous Nouveautés", name: lien_nouveautes, widget: string }
+              - { label: "Titre de la section Catalogue", name: titre_catalogue, widget: string }
+              - { label: "Lien sous Catalogue", name: lien_catalogue, widget: string }
