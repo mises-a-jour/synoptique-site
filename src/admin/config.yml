@@ -109,7 +109,7 @@ collections:
               - { label: "Note (avis pratique, restrictions, etc.)", name: note, widget: text, required: false }
 
   - name: pages
-    label: "Pages du site"
+    label: "Texte des autres pages"
     files:
       - name: accueil
         label: "Texte des autres pages"
