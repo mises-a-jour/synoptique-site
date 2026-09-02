@@ -92,9 +92,24 @@
 </footer>
 
 <script>
-  (function () {
+    (function () {
     var btn = document.getElementById('menuBtn'),
         nav = document.getElementById('nav');
+    // Sur mobile, on sort le menu du <header> : le backdrop-filter de
+    // .masthead crée un contexte de confinement qui empêche le panneau
+    // en position:fixed de couvrir l'écran (visible sur Android).
+    function placerMenu() {
+      if (!nav) return;
+      var mobile = window.matchMedia('(max-width: 680px)').matches;
+      if (mobile && nav.parentElement !== document.body) {
+        document.body.appendChild(nav);
+      } else if (!mobile && nav.parentElement === document.body) {
+        var barre = document.querySelector('.masthead__bar');
+        if (barre) barre.appendChild(nav);
+      }
+    }
+    placerMenu();
+    window.addEventListener('resize', placerMenu);
     if (btn && nav) {
       btn.addEventListener('click', function () {
         var open = nav.classList.toggle('open');
