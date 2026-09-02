@@ -578,10 +578,14 @@ section { padding-block: clamp(2.4rem, 6vw, 4.2rem); }
     display: inline-flex; margin-left: auto; background: none; border: 0;
     cursor: pointer; padding: .3rem; }
   .menu-toggle svg { width: 26px; height: 26px; stroke: var(--ink); }
+    /* Le menu est sorti du <header> par le script (voir base.njk) : le
+     backdrop-filter de .masthead crée sinon un contexte de confinement
+     qui piège le panneau à l'intérieur de l'en-tête sur Android. */
   .nav { position: fixed; inset: 0 0 0 auto; width: min(78vw, 320px);
     background: var(--paper-2); border-left: 1px solid var(--rule);
     transform: translateX(100%); transition: transform .3s ease;
     padding: 5rem 2rem 2rem; margin: 0; box-shadow: -10px 0 40px rgba(31,28,23,.18);
+    overflow-y: auto;
     z-index: 60; }
   .nav.open { transform: none; }
   .nav ul { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
