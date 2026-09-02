@@ -112,7 +112,7 @@ collections:
     label: "Pages du site"
     files:
       - name: accueil
-        label: "Page d'accueil"
+        label: "Texte des autres pages"
         file: "src/_data/pages.json"
         fields:
           - label: "Page d'accueil"
