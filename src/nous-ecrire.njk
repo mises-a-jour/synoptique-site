@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Nous écrire
-description: "Contacter les Éditions Synoptique : manuscrits, presse, libraires, demandes générales."
+description: "Contacter les Éditions Synoptique — manuscrits, presse, libraires."
 ---
 {% set p = pages.nous_ecrire %}
 
@@ -13,34 +13,71 @@ description: "Contacter les Éditions Synoptique : manuscrits, presse, libraires
 <section class="wrap">
   <div class="contact-grid">
 
-    {# ─── Colonne gauche : formulaire (désactivé pour l'instant) ─── #}
+    {# ─── Colonne gauche : formulaire ─── #}
     <div>
       <div class="label" style="margin-bottom:.8rem">{{ p.formulaire_label }}</div>
       <p style="color:var(--ink-soft);margin:0 0 1.4rem">{{ p.formulaire_note }}</p>
-      <label class="field"><span>Nom</span>
-        <input type="text" name="nom" autocomplete="name" disabled></label>
-      <label class="field"><span>Courriel</span>
-        <input type="email" name="courriel" autocomplete="email" disabled></label>
-      <label class="field"><span>Objet</span>
-        <select name="objet" disabled>
-          <option>Manuscrit</option>
-          <option>Demande de presse</option>
-          <option>Demande libraire</option>
-          <option>Question générale</option>
-        </select></label>
-      <label class="field"><span>Message</span>
-        <textarea name="message" rows="6" disabled></textarea></label>
-      <button class="btn" type="button" disabled>Envoyer</button>
-      <span class="placeholder-note" style="margin-left:1rem">{{ p.formulaire_placeholder }}</span>
+
+      <div id="envoiMessage" class="envoi-message" hidden></div>
+
+      <form action="/contact.php" method="post" id="formContact">
+        <label class="field"><span>Nom</span>
+          <input type="text" name="nom" autocomplete="name" required></label>
+        <label class="field"><span>Courriel</span>
+          <input type="email" name="courriel" autocomplete="email" required></label>
+        <label class="field"><span>Objet</span>
+          <select name="objet">
+            <option>Manuscrit</option>
+            <option>Demande de presse</option>
+            <option>Demande libraire</option>
+            <option>Question générale</option>
+          </select></label>
+        <label class="field"><span>Message</span>
+          <textarea name="message" rows="6" required></textarea></label>
+
+        {# Pot de miel : invisible pour un visiteur, rempli par les robots. #}
+        <div class="pot-de-miel" aria-hidden="true">
+          <label>Site <input type="text" name="site" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <button class="btn" type="submit">Envoyer</button>
+      </form>
     </div>
 
-    {# ─── Colonne droite : coordonnées et voies de correspondance ─── #}
+    {# ─── Colonne droite : voies de correspondance ─── #}
     <div class="coords">
       <div>
-        <span class="label">{{ p.courriel_label }}</span>
-        <p style="margin:0"><a href="mailto:{{ p.courriel_adresse }}">{{ p.courriel_adresse }}</a></p>
+        <span class="label">{{ p.coords_titre }}</span>
+        <p style="margin:0;color:var(--ink-soft)">{{ p.coords_texte }}</p>
       </div>
     </div>
   </div>
 </section>
 
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var etat = params.get('envoi');
+    if (!etat) return;
+
+    var messages = {
+      ok:        { texte: "Merci, votre message a bien été transmis. Nous vous répondrons dès que possible.", type: "succes" },
+      incomplet: { texte: "Il manque un renseignement : le nom, le courriel et le message sont nécessaires.", type: "erreur" },
+      courriel:  { texte: "L’adresse de courriel saisie ne semble pas valide. Veuillez la vérifier.", type: "erreur" },
+      erreur:    { texte: "L’envoi n’a pas abouti. Veuillez réessayer dans quelques instants.", type: "erreur" }
+    };
+
+    var m = messages[etat] || messages.erreur;
+    var boite = document.getElementById('envoiMessage');
+    boite.textContent = m.texte;
+    boite.className = 'envoi-message envoi-message--' + m.type;
+    boite.hidden = false;
+
+    if (m.type === 'succes') {
+      var f = document.getElementById('formContact');
+      if (f) f.reset();
+    }
+
+    boite.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  })();
+</script>

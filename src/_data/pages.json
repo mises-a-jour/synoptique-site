@@ -32,10 +32,9 @@
     "titre": "Nous écrire",
     "intro": "Manuscrits, presse, libraires, demandes générales – écrivez-nous.",
     "formulaire_label": "Formulaire de contact",
-    "formulaire_note": "Le formulaire ci-dessous sera activé en phase 4. En attendant, écrivez-nous directement à l'adresse indiquée à droite, en précisant la nature de votre demande.",
-    "formulaire_placeholder": "Formulaire actif en phase 4",
-    "courriel_label": "Courriel général",
-    "courriel_adresse": "synoptique@editions-synoptique.com"
+    "formulaire_note": "Écrivez-nous en remplissant le formulaire ci-dessous. Précisez la nature de votre demande à l’aide du menu « Objet ».",
+    "coords_titre": "Correspondance",
+    "coords_texte": "Manuscrits, service de presse, demandes des libraires et questions générales : tout passe par le formulaire. Une réponse vous parviendra dans les meilleurs délais."
   },
   "catalogue": {
     "titre": "Catalogue",

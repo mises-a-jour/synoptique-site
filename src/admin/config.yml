@@ -150,10 +150,9 @@ collections:
               { label: "Titre de la page", name: titre, widget: string },
               { label: "Phrase d'introduction", name: intro, widget: string },
               { label: "Étiquette du formulaire", name: formulaire_label, widget: string },
-              { label: "Note sous le formulaire", name: formulaire_note, widget: text },
-              { label: "Mention « formulaire à venir »", name: formulaire_placeholder, widget: string },
-              { label: "Étiquette du courriel", name: courriel_label, widget: string },
-              { label: "Adresse courriel", name: courriel_adresse, widget: string }
+              { label: "Note au-dessus du formulaire", name: formulaire_note, widget: text },
+              { label: "Titre de la colonne de droite", name: coords_titre, widget: string },
+              { label: "Texte de la colonne de droite", name: coords_texte, widget: text }
             ] }
           - { label: "Catalogue", name: catalogue, widget: object, collapsed: true, fields: [
               { label: "Titre de la page", name: titre, widget: string },

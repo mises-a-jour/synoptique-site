@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
   // Copie des fichiers statiques
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
+  eleventyConfig.addPassthroughCopy({ "src/contact.php": "contact.php" });
 
   // Collections
   eleventyConfig.addCollection("livres", (c) =>

@@ -757,3 +757,18 @@ section { padding-block: clamp(2.4rem, 6vw, 4.2rem); }
 @media (max-width: 640px) {
   .agenda-item { grid-template-columns: 1fr; gap: .4rem; }
 }
+
+/* ------------------------------------------- formulaire de contact */
+/* Pot de miel : hors écran plutôt que display:none — certains robots
+   ignorent les champs masqués de cette façon. */
+.pot-de-miel {
+  position: absolute; left: -9999px; width: 1px; height: 1px;
+  overflow: hidden;
+}
+.envoi-message {
+  padding: .9rem 1.1rem; margin: 0 0 1.4rem;
+  border-left: 3px solid var(--rule-2);
+  font-size: .98rem; line-height: 1.5;
+}
+.envoi-message--succes { border-left-color: var(--rouge); color: var(--ink); }
+.envoi-message--erreur { border-left-color: var(--muted); color: var(--ink-soft); }
