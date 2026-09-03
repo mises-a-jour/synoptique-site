@@ -59,8 +59,8 @@
   "panier": {
     "titre": "Panier",
     "intro": "La vente en ligne sera activée prochainement.",
-    "texte": "Le panier et le paiement sécurisé (livres papier, expédition au poids, taxes) seront mis en place à la phase 3, avec gestion des commandes pour le Canada et l'Europe.",
-    "placeholder": "Module de vente à venir (phase 3)"
+    "texte": "Le panier et le paiement sécurisé (livres papier, expédition au poids, taxes) seront mis en place prochainement.",
+    "placeholder": "Module de vente à venir."
   },
   "presses": {
     "titre": "Les Presses Philosophiques",
