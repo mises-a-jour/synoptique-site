@@ -4,7 +4,7 @@ slug: les-petites-sommes-de-logique
 auteur: jean-buridan
 auteurNom: Jean Buridan
 annee: 2016
-pages: 1276
+pages: 12
 genre: Philosophie
 collection: ''
 maison: presses
