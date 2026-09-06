@@ -67,8 +67,11 @@
     <div>
       <h4>Parcourir</h4>
       <ul>
+        {# « Nous écrire » est écarté ici : il figure dans la colonne Informations. #}
         {% for item in site.nav %}
+          {% if item.url != "/nous-ecrire/" %}
         <li><a href="{{ item.url }}">{{ item.titre }}</a></li>
+          {% endif %}
         {% endfor %}
         <li><a href="/presses-philosophiques/">Les Presses Philosophiques</a></li>
       </ul>

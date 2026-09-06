@@ -113,7 +113,7 @@ collections:
     files:
       - name: accueil
         label: "Texte des autres pages"
-        file: "src/_data/pages.json"
+        file: "src/_data/textes.json"
         fields:
           - label: "Page d'accueil"
             name: accueil
