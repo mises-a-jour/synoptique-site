@@ -1,0 +1,75 @@
+---
+layout: base.njk
+title: La Maison
+description: "Les Éditions Synoptique : une maison littéraire et philosophique vouée à la qualité du texte et de l’édition papier."
+---
+{% set p = textes.maison %}
+
+<div class="page-lede wrap">
+  <h1>{{ p.titre }}</h1>
+</div>
+
+{# ───────────── Exergue ───────────── #}
+<section class="wrap exergue">
+  <blockquote class="epigraph">
+    <p>{{ p.exergue_texte }}</p>
+    <cite>{{ p.exergue_source }}</cite>
+  </blockquote>
+</section>
+
+{# ───────────── 1. Notre propos (bandeau avec manuscrit) ───────────── #}
+<section class="band">
+  <div class="wrap band__inner">
+    <figure class="band__photo band__photo--vivid">
+      <img src="/assets/img/manuscrit-band.jpg" alt="Lettrine Q ornée d’un manuscrit gothique médiéval, encre brune sur parchemin">
+    </figure>
+    <div class="band__text">
+      <h2>{{ p.propos_titre_ligne1 }}<br>{{ p.propos_titre_ligne2 }}</h2>
+      {{ p.propos_texte | safe }}
+    </div>
+  </div>
+</section>
+
+{# ───────────── 2. Synoptique ───────────── #}
+<section class="wrap">
+  <div class="house-lockup">
+    <img class="house-lockup__mark" src="/assets/img/logo.png" alt="">
+    <span class="house-lockup__text">
+      <span class="house-lockup__name">Synoptique</span>
+      <span class="house-lockup__tag">{{ p.lockup_tagline }}</span>
+    </span>
+  </div>
+  <h2 class="sr-only">Synoptique</h2>
+  <div class="prose">
+    {{ p.synoptique_texte | safe }}
+  </div>
+</section>
+
+{# ───────────── 3. Collections ───────────── #}
+<section class="wrap">
+  <div class="section-head"><h2>{{ p.collections_titre }}</h2></div>
+  <div class="coll-row">
+    <img class="coll-emblem coll-emblem--sm" src="/assets/img/logo-de-corte.png" alt="Collection Marcel De Corte" width="130">
+    <div class="prose">
+      {{ p.collections_texte | safe }}
+      <p><a href="/collections/marcel-de-corte/">{{ p.collections_lien }}</a></p>
+    </div>
+  </div>
+</section>
+
+{# ───────────── 4. Maison affiliée ───────────── #}
+<section class="wrap">
+  <div class="section-head"><h2>{{ p.affiliee_titre }}</h2></div>
+  <div class="prose">
+    {{ p.affiliee_texte | safe }}
+    <p><a href="/presses-philosophiques/">{{ p.affiliee_lien }}</a></p>
+  </div>
+</section>
+
+{# ───────────── 5. Nous joindre ───────────── #}
+<section class="wrap">
+  <div class="section-head"><h2>{{ p.joindre_titre }}</h2></div>
+  <div class="prose">
+    {{ p.joindre_texte | safe }}
+  </div>
+</section>

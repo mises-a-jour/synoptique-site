@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: Panier
+description: "Votre panier — Éditions Synoptique."
+---
+{% set p = textes.panier %}
+
+<div class="page-lede wrap">
+  <h1>{{ p.titre }}</h1>
+  <p class="hero__lede">{{ p.intro }}</p>
+</div>
+<section class="wrap">
+  <p class="prose">{{ p.texte }}</p>
+  <span class="placeholder-note">{{ p.placeholder }}</span>
+</section>
