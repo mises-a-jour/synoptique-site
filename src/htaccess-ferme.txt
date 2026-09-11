@@ -1,0 +1,29 @@
+# ══════════════════════════════════════════════════════════════
+#  FERMETURE TEMPORAIRE DU SITE — Éditions Synoptique
+#
+#  POUR FERMER LE SITE :
+#     renommer ce fichier          htaccess-ferme.txt  →  .htaccess
+#
+#  POUR ROUVRIR LE SITE :
+#     renommer                     .htaccess  →  htaccess-ferme.txt
+#
+#  L'effet est immédiat. Les visiteurs voient la page maintenance.html.
+#  Le contenu du site n'est ni effacé ni modifié : il est seulement
+#  rendu inaccessible le temps de la fermeture.
+# ══════════════════════════════════════════════════════════════
+
+# Code 503 : « indisponible temporairement ». C'est le code correct —
+# il indique aux moteurs de recherche de repasser plus tard, sans
+# retirer le site de leur index.
+ErrorDocument 503 /maintenance.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Seule la page de fermeture reste accessible.
+  RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+  RewriteRule ^ - [R=503,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set Retry-After "3600"
+</IfModule>

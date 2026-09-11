@@ -194,3 +194,24 @@ collections:
               { label: "Philosophie — introduction", name: philosophie_intro, widget: string },
               { label: "Poésie — introduction", name: poesie_intro, widget: string }
             ] }
+
+  - name: legal
+    label: "Pages légales"
+    label_singular: "Page légale"
+    folder: "src/legal"
+    create: false
+    extension: md
+    format: yaml-frontmatter
+    identifier_field: titre
+    fields:
+      - { label: "Titre de la page", name: titre, widget: string }
+      - { label: "Phrase d'introduction", name: lede, widget: string, required: false }
+      - { label: "Description (pour les moteurs de recherche)", name: description, widget: text }
+      - { label: "Adresse de la page", name: permalink, widget: hidden }
+      - label: "Texte de la page"
+        name: body
+        widget: text
+        hint: >-
+          ATTENTION — page à valeur légale. Le texte est entouré de codes de mise en forme
+          (<h2>, <p>, <li>…). Modifiez les mots, ne touchez pas aux chevrons. En cas de doute,
+          demandez plutôt une correction. Chaque version est conservée : une erreur reste réparable.

@@ -1,0 +1,15 @@
+---
+layout: base.njk
+eleventyComputed:
+  title: "{{ titre }}"
+---
+<div class="page-lede wrap">
+  <h1>{{ titre }}</h1>
+  {% if lede %}<p class="hero__lede">{{ lede }}</p>{% endif %}
+</div>
+
+<section class="wrap">
+  <div class="legal-doc">
+{{ content | safe }}
+  </div>
+</section>
