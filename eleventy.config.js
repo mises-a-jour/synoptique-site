@@ -1,8 +1,10 @@
-module.exports = function (eleventyConfig) {
+  module.exports = function (eleventyConfig) {
   // Copie des fichiers statiques
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
   eleventyConfig.addPassthroughCopy({ "src/contact.php": "contact.php" });
+  eleventyConfig.addPassthroughCopy({ "src/maintenance.html": "maintenance.html" });
+  eleventyConfig.addPassthroughCopy({ "src/htaccess-ferme.txt": "htaccess-ferme.txt" });
 
   // Collections
   eleventyConfig.addCollection("livres", (c) =>
@@ -160,6 +162,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.ignores.add("src/admin/index.html");
+  eleventyConfig.ignores.add("src/maintenance.html");
 
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },
