@@ -1,11 +1,12 @@
 ---
-titre: "Mentions légales"
-lede: "Identité de l’éditeur, hébergement, propriété intellectuelle."
-description: "Mentions légales des Éditions Synoptique : éditeur, hébergeur, propriété intellectuelle, droit applicable."
-permalink: "/mentions-legales/"
+titre: Mentions légales
+lede: Identité de l’éditeur, hébergement, propriété intellectuelle.
+description: 'Mentions légales des Éditions Synoptique : éditeur, hébergeur, propriété intellectuelle, droit applicable.'
+permalink: /mentions-legales/
 ---
+
 <p class="legal-meta">
-  <span class="label">Dernière mise à jour</span> &nbsp;24 juillet 2026
+  <span class="label">Dernière mise à jour</span> &nbsp;12 septembre 2026
 </p>
 
 <h2>1. Éditeur du site</h2>
