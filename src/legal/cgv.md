@@ -1,11 +1,12 @@
 ---
-titre: "Conditions générales de vente"
-lede: "Les règles régissant l’achat de livres sur le présent site."
-description: "Conditions générales de vente des Éditions Synoptique : commande, paiement, livraison, annulation, garantie."
-permalink: "/cgv/"
+titre: Conditions générales de vente
+lede: Les règles régissant l’achat de livres sur le présent site.
+description: 'Conditions générales de vente des Éditions Synoptique : commande, paiement, livraison, annulation, garantie.'
+permalink: /cgv/
 ---
+
 <p class="legal-meta">
-  <span class="label">Dernière mise à jour</span> &nbsp;24 juillet 2026
+  <span class="label">Dernière mise à jour</span> &nbsp;12 septembre 2026
 </p>
 
 <p>La boutique en ligne sera activée en phase&nbsp;3; les présentes conditions s’appliqueront
