@@ -13,7 +13,6 @@ permalink: /mentions-legales/
 <p>Le présent site web (ci-après « le Site ») est édité et exploité par&nbsp;:</p>
 <ul>
   <li><strong>Raison sociale&nbsp;:</strong> Éditions Synoptique</li>
-  <li><strong>Forme juridique&nbsp;:</strong> Entreprise individuelle</li>
   <li><strong>Siège&nbsp;:</strong> 5544, rue Cartier<br>Montréal (Québec) H2H 1X9<br>Canada</li>
   <li><strong>NEQ (Numéro d’entreprise du Québec)&nbsp;:</strong> 227180159</li>
   <li><strong>Téléphone&nbsp;:</strong> 1-514-225-9092</li>
